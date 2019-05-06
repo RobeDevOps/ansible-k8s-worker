@@ -1,0 +1,7 @@
+---
+- name: Add new Node to Cluster
+  shell: "{{ hostvars['master'].join_command }} --ignore-preflight-errors all  >> node_joined.txt"
+  args:
+    chdir: $HOME
+    creates: node_joined.txt
+  when: not ansible_check_mode
