@@ -21,6 +21,34 @@ It role has dependencies on roles:
 * [**robedevops.ansible_k8s_nodes**](https://github.com/RobeDevOps/ansible-k8s-nodes): Configure and install all the packages and tools required by k8s node.
 * [**robedevops.ansible_k8s_master**](https://github.com/RobeDevOps/ansible-k8s-master): Creates the k8s master node.
 
+
+Example Inventory
+-----------------
+
+```bash
+master ansible_host=host_ip_address
+worker1 ansible_host=hos_ip_address
+worker2 ansible_host=host_ip_address
+
+[k8s-nodes]
+master
+worker1
+worker2
+
+[k8s-masters]
+master
+
+[k8s-workers]
+worker1
+worker2
+
+[all:vars]
+ansible_connection=ssh
+ansible_user=centos
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/path/to/demo.pem
+```
+
 Example Playbook
 ----------------
 
