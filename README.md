@@ -68,13 +68,13 @@ Including an example of how to use your role (for instance, with variables passe
   gather_facts: yes
   become: yes
   roles:
-    - { role: ansible-k8s-master, tags: ['k8s-master'] }
+    - { role: robedevops.ansible_k8s_master, tags: ['k8s-master'] }
 
 - hosts: k8s-workers
   gather_facts: yes
   become: yes
   roles:
-    - { role: ansible-k8s-worker, tags: ['k8s-worker'] }
+    - { role: robedevops.ansible_k8s_worker, tags: ['k8s-worker'] }
 ```
 
 License
